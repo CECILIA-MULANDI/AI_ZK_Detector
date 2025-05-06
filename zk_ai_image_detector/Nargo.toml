@@ -1,0 +1,6 @@
+[package]
+name = "zk_ai_image_detector"
+type = "bin"
+authors = [""]
+
+[dependencies]
