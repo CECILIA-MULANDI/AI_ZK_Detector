@@ -1,4 +1,4 @@
-# AI_ZK_Detector
+# Pixel Shieldy
 
 # my-dapp is a zk_app that is used to detect if an image is AI generated or not!
 
