@@ -7,6 +7,8 @@ function App() {
   const [image, setImage] = useState(null);
   const [logs, setLogs] = useState([]);
   const [result, setResult] = useState(null);
+  const [uploadTime, setUploadTime] = useState(null);
+  const [verificationTime, setVerificationTime] = useState(null);
 
   const addLog = (message) => {
     setLogs((prevLogs) => [...prevLogs, message]);
@@ -40,6 +42,8 @@ function App() {
   const handleFile = async (file) => {
     setImage(file);
     setResult(null);
+    setUploadTime(new Date());
+    setVerificationTime(null);
     addLog("Processing image... ⏳");
 
     try {
@@ -97,7 +101,8 @@ function App() {
       const isValid = await backend.verifyProof(proof);
       addLog(`Proof is ${isValid ? "valid" : "invalid"}... ✅`);
 
-      // Set result
+      // Set result and verification time
+      setVerificationTime(new Date());
       setResult({
         predicted_class: predictedClass,
         proofValid: isValid,
@@ -144,7 +149,22 @@ function App() {
             <li>AI Generated: {(result.artificial_prob * 100).toFixed(2)}%</li>
             <li>Human Generated: {(result.human_prob * 100).toFixed(2)}%</li>
           </ul>
-          <p>Image Hash: {result.image_hash.join(", ")}</p>
+          <p>
+            Image Hash:{" "}
+            {result.image_hash
+              .map((byte) => byte.toString(16).padStart(2, "0"))
+              .join("")}
+          </p>
+          {uploadTime && <p>Upload Time: {uploadTime.toLocaleString()}</p>}
+          {verificationTime && (
+            <p>Verification Time: {verificationTime.toLocaleString()}</p>
+          )}
+          {uploadTime && verificationTime && (
+            <p>
+              Processing Duration:{" "}
+              {((verificationTime - uploadTime) / 1000).toFixed(2)} seconds
+            </p>
+          )}
         </div>
       )}
     </div>
