@@ -1,0 +1,8 @@
+--2025-05-08 16:10:42--  http://ftp.gnu.org/gnu/libc/glibc-2.38.tar.gz
+Resolving ftp.gnu.org (ftp.gnu.org)... 209.51.188.20, 2001:470:142:3::b
+Connecting to ftp.gnu.org (ftp.gnu.org)|209.51.188.20|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 37494029 (36M) [application/x-gzip]
+Saving to: ‘glibc-2.38.tar.gz’
+
+glibc-2.38.tar.gz    53%[=========>          ]  18.98M  --.-KB/s    eta 32m 55s
