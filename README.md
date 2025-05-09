@@ -17,38 +17,38 @@ Yarn
 
 ### Run the AI-image-detector server
 
-# Navigate to the AI detector directory
+### Navigate to the AI detector directory
 
 cd AI-image-detector
 
-# Install Python dependencies
+### Install Python dependencies
 
-# Start the FastAPI server
+### Start the FastAPI server
 
 python script.py
 
 ### Run the circuit
 
-# Navigate to the circuit directory
+### Navigate to the circuit directory
 
 cd my-dapp/circuit
 
-# Install dependencies
+### Install dependencies
 
 yarn add @noir-lang/noir_js@1.0.0-beta.2 @aztec/bb.js@0.72.1
 
-# Compile the Noir circuit
+### Compile the Noir circuit
 
 nargo compile
 
-## Run the frontend
+### Run the frontend
 
 cd my-dapp/
 
-# Install dependencies
+### Install dependencies
 
 npm install
 
-# Start the development server
+### Start the development server
 
 npm run dev
