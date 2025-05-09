@@ -5,6 +5,7 @@ export default function Header() {
   const location = useLocation();
 
   const isActive = (path) => location.pathname === path;
+  const showHistory = location.pathname === '/verify' || location.pathname === '/results';
 
   return (
     <header className="bg-[#10192A] border-b border-[#1E293B] shadow-md">
@@ -31,12 +32,21 @@ export default function Header() {
           >
             Home
           </button>
-          <button
-            onClick={() => navigate('/login')}
-            className="px-4 py-2 rounded-lg font-semibold border border-[#3fd0ff] text-[#3fd0ff] bg-transparent hover:bg-[#3fd0ff] hover:text-[#10192A] transition-colors duration-200"
-          >
-            Login
-          </button>
+          {showHistory ? (
+            <button
+              onClick={() => navigate('/history')}
+              className="px-4 py-2 rounded-lg font-semibold border border-[#3fd0ff] text-[#3fd0ff] bg-transparent hover:bg-[#3fd0ff] hover:text-[#10192A] transition-colors duration-200"
+            >
+              View History
+            </button>
+          ) : (
+            <button
+              onClick={() => navigate('/login')}
+              className="px-4 py-2 rounded-lg font-semibold border border-[#3fd0ff] text-[#3fd0ff] bg-transparent hover:bg-[#3fd0ff] hover:text-[#10192A] transition-colors duration-200"
+            >
+              Login
+            </button>
+          )}
         </nav>
       </div>
     </header>
